@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" type="text/css" media="screen" id="screen-switcher-stylesheet"
         href="http://python.org/styles/screen-switcher-default.css" />
-  <link rel="stylesheet" type="text/css" media="sc&#82;een"
+  <link rel="stylesheet" type="text/css" media="screen"
         href="http://python.org/styles/netscape4.css" />
   <link rel="stylesheet" type="text/css" media="print"
         href="http://python.org/styles/print.css" />
@@ -19,10 +19,6 @@
         href="http://python.org/styles/largestyles.css" title="large text" />
   <link rel="alternate stylesheet" type="text/css" media="screen"
         href="http://python.org/styles/defaultfonts.css" title="default fonts" />
-
-  <script type="text/javascript" src="http://python.org/js/iotbs2-key-directors-load.js"></script>
-  <script type="text/javascript" src="http://python.org/js/iotbs2-directors.js"></script>
-  <script type="text/javascript" src="http://python.org/js/iotbs2-core.js"></script>
 
 </head>
 
@@ -103,7 +99,7 @@ Barry Warsaw &lt;barry&#32;&#97;t&#32;python.org&gt;</td>
 </li>
 <li><a class="reference internal" href="#comments" id="id21">Comments 注释</a><ul>
 <li><a class="reference internal" href="#block-comments" id="id22">Block Comments 块注册</a></li>
-<li><a class="reference internal" href="#inline-comments" id="id23">Inline Comments 行内注释</a></li>
+<li><a class="reference internal" href="#inline-comments" id="id23">Inline Comments 内嵌</a></li>
 <li><a class="reference internal" href="#documentation-strings" id="id24">Documentation Strings 文档字符串</a></li>
 </ul>
 </li>
@@ -125,8 +121,8 @@ Barry Warsaw &lt;barry&#32;&#97;t&#32;python.org&gt;</td>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#programming-recommendations" id="id39">Programming Recommendations 设计建议</a></li>
-<li><a class="reference internal" href="#references" id="id40">References 应用</a></li>
+<li><a class="reference internal" href="#programming-recommendations" id="id39">Programming Recommendations 程序设计建议</a></li>
+<li><a class="reference internal" href="#references" id="id40">References 引用</a></li>
 <li><a class="reference internal" href="#copyright" id="id41">Copyright 版权</a></li>
 </ul>
 </div>
@@ -254,6 +250,7 @@ parentheses. These should be used in preference to using a backslash
 for line continuation.  Make sure to indent the continued line
 appropriately.  The preferred place to break around a binary operator
 is <em>after</em> the operator, not before it.  Some examples:</p>
+<p>较长代码行折行的首选方法是在圆括号、方括号和花括号内使用Python的隐式续行方式。通过圆括号内的表达式的折行来把较长的代码行折成多行。这些操作应优先使用反斜杠来续行。同时确保适当的续行缩进。二元运算符的首选的折行处运算符<em>之后</em>，而不是之前。请看一些例子：</p>
 <pre class="literal-block">
 class Rectangle(Blob):
 
@@ -272,31 +269,34 @@ class Rectangle(Blob):
 </pre>
 </div>
 <div class="section" id="blank-lines">
-<h2><a class="toc-backref" href="#id15">Blank Lines</a></h2>
+<h2><a class="toc-backref" href="#id15">Blank Lines 空行</a></h2>
 <p>Separate top-level function and class definitions with two blank
 lines.</p>
+<p>使用两行空行分隔顶层函数和类的定义。</p>
 <p>Method definitions inside a class are separated by a single blank
 line.</p>
+<p>使用单行空行分隔类方法定义。</p>
 <p>Extra blank lines may be used (sparingly) to separate groups of
 related functions.  Blank lines may be omitted between a bunch of
 related one-liners (e.g. a set of dummy implementations).</p>
+<p>（谨慎地）使用额外的空白行来分隔一组相关的函数。一堆相关的单行代码之间的空白行可以省略（例如，一组dummy implementations）。</p>
 <p>Use blank lines in functions, sparingly, to indicate logical sections.</p>
+<p>在函数中使用空行来（谨慎地）表示不同的逻辑段落。</p>
 <p>Python accepts the control-L (i.e. ^L) form feed character as
 whitespace; Many tools treat these characters as page separators, so
 you may use them to separate pages of related sections of your file.
 Note, some editors and web-based code viewers may not recognize
 control-L as a form feed and will show another glyph in its place.</p>
+<p>Python接受control-L（即^L）换页符作为空格；许多工具把这些字符当作页面分隔符，所以你可以在文件中使用它们来分隔相关段落。请注意，一些编辑器和基于Web的代码阅读器可能无法识别control-L为换页，将在其位置显示另一个字形。</p>
 </div>
 <div class="section" id="encodings-pep-263">
-<h2>Encodings (<a class="reference external" href="http://python.org/dev/peps/pep-0263">PEP 263</a>)</h2>
+<h2>Encodings (<a class="reference external" href="http://python.org/dev/peps/pep-0263">PEP 263</a>) 编码</h2>
 <p>Code in the core Python distribution should always use the ASCII or
 Latin-1 encoding (a.k.a. ISO-8859-1).  For Python 3.0 and beyond,
 UTF-8 is preferred over Latin-1, see <a class="reference external" href="http://python.org/dev/peps/pep-3120">PEP 3120</a>.</p>
-<p>Files using ASCII should not have a coding cookie.  Latin-1 (or UTF-8)
-should only be used when a comment or docstring needs to mention an
-author name that requires Latin-1; otherwise, using <tt class="docutils literal">\x</tt>, <tt class="docutils literal">\u</tt> or
-<tt class="docutils literal">\U</tt> escapes is the preferred way to include non-ASCII data in
-string literals.</p>
+<p>Python核心发行代码应该总是使用 ASCII 或 Latin-1 编码 (又名 ISO-8859-1)。Python 3.0 和以后的版本，首选 UTF-8 而不是 Latin-1，请查看 <a class="reference external" href="http://python.org/dev/peps/pep-3120">PEP 3120</a> 获取更多信息。（译者注：对中文项目，请首选UTF-8。）</p>
+<p>ASCII 编码的文件不应该有coding cookie（译者注：# -*- coding: utf-8 -*-，# coding=utf-8）。Latin-1（或 UTF-8 ）只应该当注释或文档字符串涉及作者名需要 Latin-1 时才使用；否则，使用 <tt class="docutils literal">\x</tt>，<tt class="docutils literal">\u</tt>或
+<tt class="docutils literal">\U</tt>等转义字符是在字符串中包含非 ASCII 数据的首选方法。</p>
 <p>For Python 3.0 and beyond, the following policy is prescribed for the
 standard library (see <a class="reference external" href="http://python.org/dev/peps/pep-3131">PEP 3131</a>): All identifiers in the Python
 standard library MUST use ASCII-only identifiers, and SHOULD use
@@ -307,13 +307,24 @@ literals and comments must also be in ASCII. The only exceptions are
 (b) names of authors. Authors whose names are not based on the
 latin alphabet MUST provide a latin transliteration of their
 names.</p>
+<p>对Python 3.0 和以后的版本来说，下述政策仅对标准库作出限制（请查阅<a class="reference external" href="http://python.org/dev/peps/pep-3131">PEP 3131</a>）：All identifiers in the Python
+standard library MUST use ASCII-only identifiers, and SHOULD use
+English words wherever feasible (in many cases, abbreviations and
+technical terms are used which aren't English). In addition, string
+literals and comments must also be in ASCII. The only exceptions are
+(a) test cases testing the non-ASCII features, and
+(b) names of authors. Authors whose names are not based on the
+latin alphabet MUST provide a latin transliteration of their
+names.</p>
 <p>Open source projects with a global audience are encouraged to adopt a
 similar policy.</p>
+<p>面向全球用户的开源项目，鼓励采用类似的政策。</p>
 </div>
 <div class="section" id="imports">
-<h2><a class="toc-backref" href="#id17">Imports</a></h2>
+<h2><a class="toc-backref" href="#id17">Imports 导入</a></h2>
 <ul>
 <li><p class="first">Imports should usually be on separate lines, e.g.:</p>
+<p class="first">导入通常应当使用单独的行，例如：</p>
 <pre class="literal-block">
 Yes: import os
      import sys
@@ -321,56 +332,68 @@ Yes: import os
 No:  import sys, os
 </pre>
 <p>It's okay to say this though:</p>
+<p>但是可以这么做：</p>
 <pre class="literal-block">
 from subprocess import Popen, PIPE
 </pre>
 </li>
 <li><p class="first">Imports are always put at the top of the file, just after any module
 comments and docstrings, and before module globals and constants.</p>
+<p class="first">导入总是位于文件的顶部，在模块注释和文档字符串之后，在模块的全局变量与常量之前。</p>
 <p>Imports should be grouped in the following order:</p>
+<p>导入应该按照以下的顺序分组：</p>
 <ol class="arabic simple">
-<li>standard library imports</li>
-<li>related third party imports</li>
-<li>local application/library specific imports</li>
+<li>standard library imports 标准库导入</li>
+<li>related third party imports 相关第三方导入</li>
+<li>local application/library specific imports 本地应用程序/库的特定导入</li>
 </ol>
 <p>You should put a blank line between each group of imports.</p>
+<p>每组导入之间使用空行隔开。</p>
 <p>Put any relevant <tt class="docutils literal">__all__</tt> specification after the imports.</p>
+<p>在导入之后放置任何相关的 <tt class="docutils literal">__all__</tt> 说明书。</p>
 </li>
 <li><p class="first">Relative imports for intra-package imports are highly discouraged.
 Always use the absolute package path for all imports.  Even now that
 <a class="reference external" href="http://python.org/dev/peps/pep-0328">PEP 328</a> is fully implemented in Python 2.5, its style of explicit
 relative imports is actively discouraged; absolute imports are more
 portable and usually more readable.</p>
+<p class="first">非常不推荐在包内导入中使用相对路径导入。对所有导入来说，总是使用绝对包路径导入。尽管<a class="reference external" href="http://python.org/dev/peps/pep-0328">PEP 328</a> 在Python 2.5中已经完全实现，但是相对路径导入一直以来都是不推荐的，绝对路径导入更容易移植，而且常常更容易阅读。</p>
 </li>
 <li><p class="first">When importing a class from a class-containing module, it's usually
 okay to spell this:</p>
+<p class="first">从一个包含类的模块中导入类时，常常这么写：/p>
 <pre class="literal-block">
 from myclass import MyClass
 from foo.bar.yourclass import YourClass
 </pre>
 <p>If this spelling causes local name clashes, then spell them</p>
+<p>如果上述写法导致内部名称冲突，那么可以这么写：</p>
 <pre class="literal-block">
 import myclass
 import foo.bar.yourclass
 </pre>
 <p>and use &quot;myclass.MyClass&quot; and &quot;foo.bar.yourclass.YourClass&quot;.</p>
+<p>分别这样使用：&quot;myclass.MyClass&quot; 和 &quot;foo.bar.yourclass.YourClass&quot;。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="section" id="whitespace-in-expressions-and-statements">
-<h1><a class="toc-backref" href="#id18">Whitespace in Expressions and Statements</a></h1>
+<h1><a class="toc-backref" href="#id18">Whitespace in Expressions and Statements 表达式和语句中的空格</a></h1>
 <div class="section" id="pet-peeves">
-<h2><a class="toc-backref" href="#id19">Pet Peeves</a></h2>
+<h2><a class="toc-backref" href="#id19">Pet Peeves 宠物的烦恼（即无伤大雅的小问题）</a></h2>
 <p>Avoid extraneous whitespace in the following situations:</p>
+<p>在下列情况下，避免多余的空格：</p>
 <ul>
 <li><p class="first">Immediately inside parentheses, brackets or braces.</p>
+<p class="first">紧贴着圆括号、方括号和花括号。</p>
 <pre class="literal-block">
 Yes: spam(ham[1], {eggs: 2})
 No:  spam( ham[ 1 ], { eggs: 2 } )
 </pre>
 </li>
 <li><p class="first">Immediately before a comma, semicolon, or colon:</p>
+<p class="first">紧贴在逗号，分号或冒号之前：</p>
 <pre class="literal-block">
 Yes: if x == 4: print x, y; x, y = y, x
 No:  if x == 4 : print x , y ; x , y = y , x
@@ -378,6 +401,7 @@ No:  if x == 4 : print x , y ; x , y = y , x
 </li>
 <li><p class="first">Immediately before the open parenthesis that starts the argument
 list of a function call:</p>
+<p class="first">紧贴在函数调用的参数列表的圆括号的开括号前：</p>
 <pre class="literal-block">
 Yes: spam(1)
 No:  spam (1)
@@ -385,6 +409,7 @@ No:  spam (1)
 </li>
 <li><p class="first">Immediately before the open parenthesis that starts an indexing or
 slicing:</p>
+<p class="first">紧贴在索引或切片的方括号的开括号前：</p>
 <pre class="literal-block">
 Yes: dict['key'] = list[index]
 No:  dict ['key'] = list [index]
@@ -392,6 +417,7 @@ No:  dict ['key'] = list [index]
 </li>
 <li><p class="first">More than one space around an assignment (or other) operator to
 align it with another.</p>
+<p class="first">在赋值（或其他）语句的运算符周围，为了对齐而使用多个空格。</p>
 <p>Yes:</p>
 <pre class="literal-block">
 x = 1
@@ -408,15 +434,18 @@ long_variable = 3
 </ul>
 </div>
 <div class="section" id="other-recommendations">
-<h2><a class="toc-backref" href="#id20">Other Recommendations</a></h2>
+<h2><a class="toc-backref" href="#id20">Other Recommendations 其他建议</a></h2>
 <ul>
 <li><p class="first">Always surround these binary operators with a single space on either
 side: assignment (<tt class="docutils literal">=</tt>), augmented assignment (<tt class="docutils literal">+=</tt>, <tt class="docutils literal"><span class="pre">-=</span></tt>
 etc.), comparisons (<tt class="docutils literal">==</tt>, <tt class="docutils literal">&lt;</tt>, <tt class="docutils literal">&gt;</tt>, <tt class="docutils literal">!=</tt>, <tt class="docutils literal">&lt;&gt;</tt>, <tt class="docutils literal">&lt;=</tt>,
 <tt class="docutils literal">&gt;=</tt>, <tt class="docutils literal">in</tt>, <tt class="docutils literal">not in</tt>, <tt class="docutils literal">is</tt>, <tt class="docutils literal">is not</tt>), Booleans (<tt class="docutils literal">and</tt>,
 <tt class="docutils literal">or</tt>, <tt class="docutils literal">not</tt>).</p>
+<p class="first">总是在这些二元运算符前后加一个空格：赋值（<tt class="docutils literal">=</tt>），自增赋值（<tt class="docutils literal">+=</tt>，<tt class="docutils literal"><span class="pre">-=</span></tt>
+等等）， 比较（<tt class="docutils literal">==</tt>，<tt class="docutils literal">&lt;</tt>，<tt class="docutils literal">&gt;</tt>，<tt class="docutils literal">!=</tt>，<tt class="docutils literal">&lt;&gt;</tt>，<tt class="docutils literal">&lt;=</tt>，<tt class="docutils literal">&gt;=</tt>，<tt class="docutils literal">in</tt>，<tt class="docutils literal">not in</tt>，<tt class="docutils literal">is</tt>，<tt class="docutils literal">is not</tt>)，布尔运算（<tt class="docutils literal">and</tt>，<tt class="docutils literal">or</tt>，<tt class="docutils literal">not</tt>）。</p>
 </li>
 <li><p class="first">Use spaces around arithmetic operators:</p>
+<p class="first">在算术运算符前后加空格：</p>
 <p>Yes:</p>
 <pre class="literal-block">
 i = i + 1
@@ -436,6 +465,8 @@ c = (a+b) * (a-b)
 </li>
 <li><p class="first">Don't use spaces around the <tt class="docutils literal">=</tt> sign when used to indicate a
 keyword argument or a default parameter value.</p>
+<p class="first">不要在一个关键字参数或者一个缺省参数值的 <tt class="docutils literal">=</tt>  符号前后加一个空格。</p>
+
 <p>Yes:</p>
 <pre class="literal-block">
 def complex(real, imag=0.0):
@@ -449,6 +480,7 @@ def complex(real, imag = 0.0):
 </li>
 <li><p class="first">Compound statements (multiple statements on the same line) are
 generally discouraged.</p>
+<p class="first">通常不推荐使用复合语句（一行代码中有多条语句）。</p>
 <p>Yes:</p>
 <pre class="literal-block">
 if foo == 'blah':
@@ -466,6 +498,7 @@ do_one(); do_two(); do_three()
 <li><p class="first">While sometimes it's okay to put an if/for/while with a small body
 on the same line, never do this for multi-clause statements.  Also
 avoid folding such long lines!</p>
+<p class="first">通常情况下，一行代码包括一个小的if/for/while块，是可以的。但是多子句绝不可以。同样，需要避免折叠类似的长代码行！</p>
 <p>Rather not:</p>
 <pre class="literal-block">
 if foo == 'blah': do_blah_thing()
@@ -473,6 +506,7 @@ for x in lst: total += x
 while t &lt; 10: t = delay()
 </pre>
 <p>Definitely not:</p>
+<p>绝对不可以：</p>
 <pre class="literal-block">
 if foo == 'blah': do_blah_thing()
 else: do_non_blah_thing()
@@ -490,60 +524,76 @@ if foo == 'blah': one(); two(); three()
 </div>
 </div>
 <div class="section" id="comments">
-<h1><a class="toc-backref" href="#id21">Comments</a></h1>
+<h1><a class="toc-backref" href="#id21">Comments 注释</a></h1>
 <p>Comments that contradict the code are worse than no comments.  Always
 make a priority of keeping the comments up-to-date when the code
 changes!</p>
+<p>不好理解的注释不如没有注释。注释要和代码保持与时俱进！</p>
 <p>Comments should be complete sentences.  If a comment is a phrase or
 sentence, its first word should be capitalized, unless it is an
 identifier that begins with a lower case letter (never alter the case
 of identifiers!).</p>
+<p>注释应该是一条完整的句子。如果注释是一个短语或一个短句，它的第一个字应该大写，除非它是一个小写字母开头的标识符（绝对不要改变标识符的大小写）。</p>
 <p>If a comment is short, the period at the end can be omitted.  Block
 comments generally consist of one or more paragraphs built out of
 complete sentences, and each sentence should end in a period.</p>
+<p>如果注释很短，那么结尾的句号可以省略。块注释通常由一个或多个段落组成，
+这些段落由完整的句子构成，每个句子都应该使用句号结尾。</p>
 <p>You should use two spaces after a sentence-ending period.</p>
+<p>句号结尾的句子后面应该有2个空格。</p>
 <p>When writing English, Strunk and White apply.</p>
 <p>Python coders from non-English speaking countries: please write your
 comments in English, unless you are 120% sure that the code will never
 be read by people who don't speak your language.</p>
+<p>来自非英语国家的Python程序员：请使用英语写注释，除非你120％肯定你的代码将永远不会
+被不说你的语言的人阅读。</p>
 <div class="section" id="block-comments">
-<h2><a class="toc-backref" href="#id22">Block Comments</a></h2>
+<h2><a class="toc-backref" href="#id22">Block Comments 块注释</a></h2>
 <p>Block comments generally apply to some (or all) code that follows
 them, and are indented to the same level as that code.  Each line of a
 block comment starts with a <tt class="docutils literal">#</tt> and a single space (unless it is
 indented text inside the comment).</p>
+<p>块注释在一些（或全部）代码之前，并和代码缩进一致。每行注释均以 <tt class="docutils literal">#</tt> 开头，然后紧跟一个空格（除非在注释内缩进）。</p>
 <p>Paragraphs inside a block comment are separated by a line containing a
 single <tt class="docutils literal">#</tt>.</p>
+<p>块注释内的段落使用仅含 <tt class="docutils literal">#</tt> 的单行分隔。</p>
 </div>
 <div class="section" id="inline-comments">
-<h2><a class="toc-backref" href="#id23">Inline Comments</a></h2>
+<h2><a class="toc-backref" href="#id23">Inline Comments 行内注释</a></h2>
 <p>Use inline comments sparingly.</p>
+<p>谨慎地使用内嵌注释</p>
 <p>An inline comment is a comment on the same line as a statement.
 Inline comments should be separated by at least two spaces from the
 statement.  They should start with a # and a single space.</p>
+<p>内嵌注释是一种和语句在同一行的注释。内嵌注释至少和语句间隔2个空格。他们开始于一个 # 和一个空格。</p>
 <p>Inline comments are unnecessary and in fact distracting if they state
 the obvious.  Don't do this:</p>
+<p>如果语句显而易见，那么内嵌注释是不必要的，实际上会让开发者分心。不要这么做：</p>
 <pre class="literal-block">
 x = x + 1                 # Increment x
 </pre>
 <p>But sometimes, this is useful:</p>
+<p>但是有的情况下，这样却很有帮助：</p>
 <pre class="literal-block">
 x = x + 1                 # Compensate for border
 </pre>
 </div>
 <div class="section" id="documentation-strings">
-<h2><a class="toc-backref" href="#id24">Documentation Strings</a></h2>
+<h2><a class="toc-backref" href="#id24">Documentation Strings 文档字符串</a></h2>
 <p>Conventions for writing good documentation strings
 (a.k.a. &quot;docstrings&quot;) are immortalized in <a class="reference external" href="http://python.org/dev/peps/pep-0257">PEP 257</a>.</p>
+<p>编写良好的文档字符串（documentation strings，又名 &quot;docstrings&quot;）的约定永生（:(）在 <a class="reference external" href="http://python.org/dev/peps/pep-0257">PEP 257</a>。</p>
 <ul>
 <li><p class="first">Write docstrings for all public modules, functions, classes, and
 methods.  Docstrings are not necessary for non-public methods, but
 you should have a comment that describes what the method does.  This
 comment should appear after the <tt class="docutils literal">def</tt> line.</p>
+<p class="first">所有的公告模块，函数，类和方法都需要编写文档字符串。对非公共的方法而言，文档字符串则不是必要的，但是可以使用一个注释来描述这个方法。这个注释必须位于 <tt class="docutils literal">def</tt> 行之后。</p>
 </li>
 <li><p class="first"><a class="reference external" href="http://python.org/dev/peps/pep-0257">PEP 257</a> describes good docstring conventions.  Note that most
 importantly, the <tt class="docutils literal">&quot;&quot;&quot;</tt> that ends a multiline docstring should be
 on a line by itself, and preferably preceded by a blank line, e.g.:</p>
+<p class="first"><a class="reference external" href="http://python.org/dev/peps/pep-0257">PEP 257</a> 描述了一个良好的文档字符串的编写约定。注意最重要的是，<tt class="docutils literal">&quot;&quot;&quot;</tt> 作为多行的文档字符串的结束，应该单独一行，并且之前有一个空行，例如：</p>
 <pre class="literal-block">
 &quot;&quot;&quot;Return a foobang
 
@@ -554,20 +604,23 @@ Optional plotz says to frobnicate the bizbaz first.
 </li>
 <li><p class="first">For one liner docstrings, it's okay to keep the closing <tt class="docutils literal">&quot;&quot;&quot;</tt> on
 the same line.</p>
+<p class="first">对单行的文档字符串来说，结尾的 <tt class="docutils literal">&quot;&quot;&quot;</tt> 在同一行。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="section" id="version-bookkeeping">
-<h1><a class="toc-backref" href="#id25">Version Bookkeeping</a></h1>
+<h1><a class="toc-backref" href="#id25">Version Bookkeeping 版本注记</a></h1>
 <p>If you have to have Subversion, CVS, or RCS crud in your source file,
 do it as follows.</p>
+<p>如果在代码源文件中掺杂着Subversion，CVS或RCS注记，按照下面的规则书写。</p>
 <pre class="literal-block">
 __version__ = &quot;$Revision: dc5a21b8bc47 $&quot;
 # $Source$
 </pre>
 <p>These lines should be included after the module's docstring, before
 any other code, separated by a blank line above and below.</p>
+<p>这些行在块注释之后，其他代码之前。前后各有一个空行。</p>
 </div>
 <div class="section" id="naming-conventions">
 <h1><a class="toc-backref" href="#id26">Naming Conventions</a></h1>
@@ -732,18 +785,29 @@ capital letters with underscores separating words.  Examples include
 <tt class="docutils literal">MAX_OVERFLOW</tt> and <tt class="docutils literal">TOTAL</tt>.</p>
 </div>
 <div class="section" id="designing-for-inheritance">
-<h3><a class="toc-backref" href="#id38">Designing for inheritance</a></h3>
+<h3><a class="toc-backref" href="#id38">Designing for inheritance 继承设计</a></h3>
 <p>Always decide whether a class's methods and instance variables
 (collectively: &quot;attributes&quot;) should be public or non-public.  If in
 doubt, choose non-public; it's easier to make it public later than to
 make a public attribute non-public.</p>
+<p>
+	总要考虑一个类的方法或实例变量（总体而言：属性）应该是公用的或者非公用的。如果不能确定的话，设计为私有的。
+	因为，之后将一个私用的改为公有的要比将公有的变为私有的容易。
+</p>
 <p>Public attributes are those that you expect unrelated clients of your
 class to use, with your commitment to avoid backward incompatible
 changes.  Non-public attributes are those that are not intended to be
 used by third parties; you make no guarantees that non-public
 attributes won't change or even be removed.</p>
+<p>
+	公有属性，是你希望与这个类无关的客户使用的，并通过你的委托机制来避免由于属性变更导致的向后不兼容。
+	私有属性，是你不希望被第三方使用的。你不能保证私有属性不会改变甚至被删除。
+</p>
 <p>We don't use the term &quot;private&quot; here, since no attribute is really
 private in Python (without a generally unnecessary amount of work).</p>
+<p>
+	在这里我们没有使用术语&quot;private&quot;，因为在Python并没有真正的私有属性（为了避免大量不必要的常规工作）
+</p>
 <p>Another category of attributes are those that are part of the
 &quot;subclass API&quot; (often called &quot;protected&quot; in other languages).  Some
 classes are designed to be inherited from, either to extend or modify
@@ -751,9 +815,18 @@ aspects of the class's behavior.  When designing such a class, take
 care to make explicit decisions about which attributes are public,
 which are part of the subclass API, and which are truly only to be
 used by your base class.</p>
+<p>
+	另一种属性，是&quot;subclass API&quot; 的一部分（通常，在某些语言里被称作&quot;protected&quot;）。有一些类设计的时候是用来继承的。
+	用于扩展或者改变类的自身行为的某些方面。当设计这样的类的时候，一定要弄清楚哪些属性是公有的，哪些是subclass API的子集，哪些是真正只在自己的基类中使用的
+</p>
 <p>With this in mind, here are the Pythonic guidelines:</p>
+<p>
+	贯穿着这样的思想，如下是Python的准则：
+</p>
 <ul>
-<li><p class="first">Public attributes should have no leading underscores.</p>
+<li>
+	<p class="first">Public attributes should have no leading underscores.</p>
+	<p class="first">公有属性不应该用下划线开始。</p>
 </li>
 <li><p class="first">If your public attribute name collides with a reserved keyword,
 append a single trailing underscore to your attribute name.  This is
@@ -761,7 +834,14 @@ preferable to an abbreviation or corrupted spelling.  (However,
 notwithstanding this rule, 'cls' is the preferred spelling for any
 variable or argument which is known to be a class, especially the
 first argument to a class method.)</p>
+<p>
+	如果你的公有属性和保留字冲突。那么在属性名后面加一个下划线。这要比缩写和糟糕的拼写好很多。
+	（然而，尽管有这样的规则，'cls'在用作变量，或者参数时，是代表'类'的最佳选择。特别是用作类方法的第一个参数）
+</p>
 <p>Note 1: See the argument name recommendation above for class methods.</p>
+<p>
+	注意1：参看之前的类方法参数命名建议
+</p>
 </li>
 <li><p class="first">For simple public data attributes, it is best to expose just the
 attribute name, without complicated accessor/mutator methods.  Keep
@@ -770,12 +850,26 @@ should you find that a simple data attribute needs to grow
 functional behavior.  In that case, use properties to hide
 functional implementation behind simple data attribute access
 syntax.</p>
+<p>
+	对于单一的公有数据属性，最好是直接用其属性名，而非复杂的存取器/突变期方法。
+	需要记得的是，Python为今后由简单的数据属性扩充为方法操作提供了简单的途径。
+	因此，运用属性来达到简单数据存取语法对于方法实现的透明化处理。
+</p>
 <p>Note 1: Properties only work on new-style classes.</p>
+<p>
+	注意1:属性只在new-style 类中起作用
+</p>
 <p>Note 2: Try to keep the functional behavior side-effect free,
 although side-effects such as caching are generally fine.</p>
+<p>
+	尽管方法行为对于内存等的副作用比较小，但仍要尽量避免
+</p>
 <p>Note 3: Avoid using properties for computationally expensive
 operations; the attribute notation makes the caller believe that
 access is (relatively) cheap.</p>
+<p>
+	属性标记让调用者认为存取开销（相当的）小。所以，避免用属性进行开销昂贵的操作。
+</p>
 </li>
 <li><p class="first">If your class is intended to be subclassed, and you have attributes
 that you do not want subclasses to use, consider naming them with
@@ -784,15 +878,32 @@ invokes Python's name mangling algorithm, where the name of the
 class is mangled into the attribute name.  This helps avoid
 attribute name collisions should subclasses inadvertently contain
 attributes with the same name.</p>
+<p>
+	如果你的类打算用来继承的话，并且你的属性不希望子类继承，那么考虑用双下划线开头，不要有结尾下划线。这样会调用
+	Python的"名称变化术"算法，它会把类的名字错位成属性名。这样可以帮助我们避免在子类中不小心包含了相同的名字造成的冲突。
+</p>
 <p>Note 1: Note that only the simple class name is used in the mangled
 name, so if a subclass chooses both the same class name and attribute
 name, you can still get name collisions.</p>
+<p>
+	注意1:要注意的是只有简单类名（simple class name）才能在名称错位中使用。
+	所以，如果一个子类同时用相同的类名和属性名，还是会造成名称冲突。
+</p>
 <p>Note 2: Name mangling can make certain uses, such as debugging and
 <tt class="docutils literal">__getattr__()</tt>, less convenient.  However the name mangling
 algorithm is well documented and easy to perform manually.</p>
+<p>
+<p>
+	"名称变化术"可用作某些用途，比如调试，<tt class="docutils literal">__getattr__()</tt>,不太方便。
+	但是"名称变化术"有详实的文档，而且容易操作。
+</p>
+</p>
 <p>Note 3: Not everyone likes name mangling.  Try to balance the
 need to avoid accidental name clashes with potential use by
 advanced callers.</p>
+<p>
+	注意3:并不是所有人喜欢"名称变化术"。尝试平衡需求，避免由于之前潜在的调用造成的意外的名称冲突。
+</p>
 </li>
 </ul>
 </div>
