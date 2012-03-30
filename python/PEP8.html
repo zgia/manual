@@ -250,7 +250,7 @@ parentheses. These should be used in preference to using a backslash
 for line continuation.  Make sure to indent the continued line
 appropriately.  The preferred place to break around a binary operator
 is <em>after</em> the operator, not before it.  Some examples:</p>
-<p>较长代码行折行的首选方法是在圆括号、方括号和花括号内使用Python的隐式续行方式。通过圆括号内的表达式的折行来把较长的代码行折成多行。这些操作应优先使用反斜杠来续行。同时确保适当的续行缩进。二元运算符的首选的折行处运算符<em>之后</em>，而不是之前。请看一些例子：</p>
+<p>较长代码行折行的首选方法是在圆括号、方括号和花括号内使用Python的隐式续行方式。通过圆括号内的表达式的折行来把较长的代码行折成多行。这些操作应优先使用反斜杠来续行。同时确保适当的续行缩进。二元运算符的首选的折行处是在运算符<em>之后</em>，而不是之前。请看一些例子：</p>
 <pre class="literal-block">
 class Rectangle(Blob):
 
@@ -361,7 +361,7 @@ portable and usually more readable.</p>
 </li>
 <li><p class="first">When importing a class from a class-containing module, it's usually
 okay to spell this:</p>
-<p class="first">从一个包含类的模块中导入类时，常常这么写：/p>
+<p class="first">从一个包含类的模块中导入类时，常常这么写：</p>
 <pre class="literal-block">
 from myclass import MyClass
 from foo.bar.yourclass import YourClass
@@ -533,7 +533,7 @@ changes!</p>
 sentence, its first word should be capitalized, unless it is an
 identifier that begins with a lower case letter (never alter the case
 of identifiers!).</p>
-<p>注释应该是一条完整的句子。如果注释是一个短语或一个短句，它的第一个字应该大写，除非它是一个小写字母开头的标识符（绝对不要改变标识符的大小写）。</p>
+<p>注释应该是一条完整的句子。如果注释是一个短语或句子，它的第一个字应该大写，除非它是一个小写字母开头的标识符（绝对不要改变标识符的大小写）。</p>
 <p>If a comment is short, the period at the end can be omitted.  Block
 comments generally consist of one or more paragraphs built out of
 complete sentences, and each sentence should end in a period.</p>
@@ -623,43 +623,56 @@ any other code, separated by a blank line above and below.</p>
 <p>这些行在块注释之后，其他代码之前。前后各有一个空行。</p>
 </div>
 <div class="section" id="naming-conventions">
-<h1><a class="toc-backref" href="#id26">Naming Conventions</a></h1>
+<h1><a class="toc-backref" href="#id26">Naming Conventions 命名约定</a></h1>
 <p>The naming conventions of Python's library are a bit of a mess, so
 we'll never get this completely consistent -- nevertheless, here are
 the currently recommended naming standards.  New modules and packages
 (including third party frameworks) should be written to these
 standards, but where an existing library has a different style,
 internal consistency is preferred.</p>
+<p>
+	Python库的命名约定有点乱，所以我们从未达成完全一致。但是，目前有一些推荐的标准。
+	新的模块和包（包括第三方框架）应该用这些标准，但是拥有不同风格的固有库，还是保持内部统一更好。
+</p>
 <div class="section" id="descriptive-naming-styles">
-<h2><a class="toc-backref" href="#id27">Descriptive: Naming Styles</a></h2>
+<h2><a class="toc-backref" href="#id27">Descriptive: Naming Styles 描述：命名风格</a></h2>
 <p>There are a lot of different naming styles.  It helps to be able to
 recognize what naming style is being used, independently from what
 they are used for.</p>
+<p>有许多不同的命名风格。它能够识别正在使用什么样的命名风格，而不考虑他们为什么使用。</p>
 <p>The following naming styles are commonly distinguished:</p>
+<p>下面是常见的优秀命名方式：</p>
 <ul>
-<li><p class="first"><tt class="docutils literal">b</tt> (single lowercase letter)</p>
+<li><p class="first"><tt class="docutils literal">b</tt> (single lowercase letter) （单个小写字母）</p>
 </li>
-<li><p class="first"><tt class="docutils literal">B</tt> (single uppercase letter)</p>
+<li><p class="first"><tt class="docutils literal">B</tt> (single uppercase letter) （单个大写字母）</p>
 </li>
-<li><p class="first"><tt class="docutils literal">lowercase</tt></p>
+<li><p class="first"><tt class="docutils literal">lowercase 小写字母</tt></p>
 </li>
-<li><p class="first"><tt class="docutils literal">lower_case_with_underscores</tt></p>
+<li><p class="first"><tt class="docutils literal">lower_case_with_underscores 使用下划线分隔的小写字母</tt></p>
 </li>
-<li><p class="first"><tt class="docutils literal">UPPERCASE</tt></p>
+<li><p class="first"><tt class="docutils literal">UPPERCASE 大写字母</tt></p>
 </li>
-<li><p class="first"><tt class="docutils literal">UPPER_CASE_WITH_UNDERSCORES</tt></p>
+<li><p class="first"><tt class="docutils literal">UPPER_CASE_WITH_UNDERSCORES 使用下划线分隔的大写字母</tt></p>
 </li>
 <li><p class="first"><tt class="docutils literal">CapitalizedWords</tt> (or CapWords, or CamelCase -- so named because
 of the bumpy look of its letters <a class="footnote-reference" href="#id8" id="id4">[4]</a>).  This is also sometimes known
 as StudlyCaps.</p>
+<p class="first"><tt class="docutils literal">CapitalizedWords</tt> （或 CapWords，或 CamelCase -- 这样命名因为其字母有起伏的外观<a class="footnote-reference" href="#id8" id="id4">[4]</a>）。这有时也被称为 StudlyCaps。</p>
 <p>Note: When using abbreviations in CapWords, capitalize all the
 letters of the abbreviation.  Thus HTTPServerError is better than
 HttpServerError.</p>
+<p>
+	注意：当首字大写中用到缩写时，所有字符用大写。因此HTTPSeverError比HttpSeverError好。
+</p>
 </li>
 <li><p class="first"><tt class="docutils literal">mixedCase</tt> (differs from CapitalizedWords by initial lowercase
 character!)</p>
+<p>
+	<tt class="docutils literal">mixedCase</tt>（不同于首字符大写，开始是小写字母！）
+</p>
 </li>
-<li><p class="first"><tt class="docutils literal">Capitalized_Words_With_Underscores</tt> (ugly!)</p>
+<li><p class="first"><tt class="docutils literal">Capitalized_Words_With_Underscores</tt> (ugly!)（丑陋之极！）</p>
 </li>
 </ul>
 <p>There's also the style of using a short unique prefix to group related
@@ -669,20 +682,38 @@ tuple whose items traditionally have names like <tt class="docutils literal">st_
 <tt class="docutils literal">st_size</tt>, <tt class="docutils literal">st_mtime</tt> and so on.  (This is done to emphasize the
 correspondence with the fields of the POSIX system call struct, which
 helps programmers familiar with that.)</p>
+<p>
+	也有用唯一短前缀来组织相关字符的方法。在Python中用的不多。但为了完整提一下。比如，<tt class="docutils literal">os.stat()</tt>返回一个元组，
+	里面的条目是传统的名字，如<tt class="docutils literal">st_mode</tt>,
+<tt class="docutils literal">st_size</tt>, <tt class="docutils literal">st_mtime</tt> 等。
+(这么做是为了与 POSIX 系统的调用一致，以帮助程序员熟悉它。)
+</p>
 <p>The X11 library uses a leading X for all its public functions.  In
 Python, this style is generally deemed unnecessary because attribute
 and method names are prefixed with an object, and function names are
 prefixed with a module name.</p>
+<p>
+	X11库的所有公共函数用了前导X。在Python中，这种风格通常被视为非必须的，因为属性和方法的名字用类做前缀，方法名用模块名做前缀。
+</p>
 <p>In addition, the following special forms using leading or trailing
 underscores are recognized (these can generally be combined with any
 case convention):</p>
+<p>
+	另外，下面用前导和结尾下划线的特殊格式是被认可的（通常和一些示例规范结合）
+</p>
 <ul>
 <li><p class="first"><tt class="docutils literal">_single_leading_underscore</tt>: weak &quot;internal use&quot; indicator.
 E.g. <tt class="docutils literal">from M import *</tt> does not import objects whose name starts
 with an underscore.</p>
+<p>
+	<tt class="docutils literal">_single_leading_underscore</tt>：（单下划线开始）弱&quot;内部使用&quot;指示器。例如：<tt class="docutils literal">from M import *</tt> 不会导入以下划线开始的类。</p>
+</p>
 </li>
 <li><p class="first"><tt class="docutils literal">single_trailing_underscore_</tt>: used by convention to avoid
 conflicts with Python keyword, e.g.</p>
+<p>
+	<tt class="docutils literal">single_trailing_underscore_</tt>：（单下划线结束）规定使用其来避免与Python关键字冲突，例如：
+</p>
 <pre class="literal-block">
 Tkinter.Toplevel(master, class_='ClassName')
 </pre>
@@ -690,99 +721,172 @@ Tkinter.Toplevel(master, class_='ClassName')
 <li><p class="first"><tt class="docutils literal">__double_leading_underscore</tt>: when naming a class attribute,
 invokes name mangling (inside class FooBar, <tt class="docutils literal">__boo</tt> becomes
 <tt class="docutils literal">_FooBar__boo</tt>; see below).</p>
+<p>
+	<tt class="docutils literal">__double_leading_underscore</tt>：（双下划线开始）命名一个类的属性时，调用"名字变化"（类FooBar中，<tt class="docutils literal">__boo</tt> 变为了
+<tt class="docutils literal">_FooBar__boo</tt>; 见下文）。
+</p>
 </li>
 <li><p class="first"><tt class="docutils literal">__double_leading_and_trailing_underscore__</tt>: &quot;magic&quot; objects or
 attributes that live in user-controlled namespaces.
 E.g. <tt class="docutils literal">__init__</tt>, <tt class="docutils literal">__import__</tt> or <tt class="docutils literal">__file__</tt>.  Never invent
 such names; only use them as documented.</p>
+<p>
+	<tt class="docutils literal">__double_leading_and_trailing_underscore__</tt>：（双下划线开始和结束）&quot;magic&quot;对象或属性存活于用户控制的命名空间。
+	例如<tt class="docutils literal">__init__</tt>, <tt class="docutils literal">__import__</tt> 或 <tt class="docutils literal">__file__</tt>。永远不要起这样的名字；只在文档中使用。
+</p>
 </li>
 </ul>
 </div>
 <div class="section" id="prescriptive-naming-conventions">
-<h2><a class="toc-backref" href="#id28">Prescriptive: Naming Conventions</a></h2>
+<h2><a class="toc-backref" href="#id28">Prescriptive: Naming Conventions 说明：命名规范</a></h2>
 <div class="section" id="names-to-avoid">
-<h3><a class="toc-backref" href="#id29">Names to Avoid</a></h3>
+<h3><a class="toc-backref" href="#id29">Names to Avoid 避免使用的名字</a></h3>
 <p>Never use the characters 'l' (lowercase letter el), 'O' (uppercase
 letter oh), or 'I' (uppercase letter eye) as single character variable
 names.</p>
+<p>
+	永远不要使用 'l'（小写的L），'O'（大写的O），或者'I'（大写的I）作为单字变量名。
+</p>
 <p>In some fonts, these characters are indistinguishable from the
 numerals one and zero.  When tempted to use 'l', use 'L' instead.</p>
+<p>
+	在某些字体中，这些字很难和数字的0 和 1 区分。当打算用'l'的时候,用'L'来代替。
+</p>
 </div>
 <div class="section" id="package-and-module-names">
-<h3><a class="toc-backref" href="#id30">Package and Module Names</a></h3>
+<h3><a class="toc-backref" href="#id30">Package and Module Names 包和模块名称</a></h3>
 <p>Modules should have short, all-lowercase names.  Underscores can be
 used in the module name if it improves readability.  Python packages
 should also have short, all-lowercase names, although the use of
 underscores is discouraged.</p>
+<p>
+	模块应该用简短的，全小写的名字。如果能增强可读性的话，可以使用下划线。
+	Python的包也要用全小写的，短名称，但是不建议用下划线。
+</p>
 <p>Since module names are mapped to file names, and some file systems are
 case insensitive and truncate long names, it is important that module
 names be chosen to be fairly short -- this won't be a problem on Unix,
 but it may be a problem when the code is transported to older Mac or
 Windows versions, or DOS.</p>
+<p>
+	因为模块名称和文件名关联，而且某些文件系统大小写不敏感，也会截断过长的名字。所以模块选用相当简短的名字是很重要的。
+	在Unix下不会有这样的问题，但是在早些的Mac、Windows 或者 DOS下会有这样的问题。
+</p>
 <p>When an extension module written in C or C++ has an accompanying
 Python module that provides a higher level (e.g. more object oriented)
 interface, the C/C++ module has a leading underscore
 (e.g. <tt class="docutils literal">_socket</tt>).</p>
+<p>
+	当用C或C++连编写一个含有Python模块提供更高层（比如，更加面向对象）接口的扩展模块时，这个C/C++模块要有一个前导下划线（例如 <tt class="docutils literal">_socket</tt>）。
+</p>
 </div>
 <div class="section" id="class-names">
-<h3><a class="toc-backref" href="#id31">Class Names</a></h3>
+<h3><a class="toc-backref" href="#id31">Class Names 类名</a></h3>
 <p>Almost without exception, class names use the CapWords convention.
 Classes for internal use have a leading underscore in addition.</p>
+<p>
+	毫无例外，类名要用首字母大写的规则。内部类，要加上前导下划线。
+</p>
 </div>
 <div class="section" id="exception-names">
-<h3><a class="toc-backref" href="#id32">Exception Names</a></h3>
+<h3><a class="toc-backref" href="#id32">Exception Names 异常名</a></h3>
 <p>Because exceptions should be classes, the class naming convention
 applies here.  However, you should use the suffix &quot;Error&quot; on your
 exception names (if the exception actually is an error).</p>
+<p>
+	异常也是类，所以这里也用类名规则。但是，你异常名应该用前缀 &quot;Error&quot;（如果你的异常确实是个错误的话）。
+</p>
 </div>
 <div class="section" id="global-variable-names">
-<h3><a class="toc-backref" href="#id33">Global Variable Names</a></h3>
+<h3><a class="toc-backref" href="#id33">Global Variable Names 全局变量名</a></h3>
 <p>(Let's hope that these variables are meant for use inside one module
 only.)  The conventions are about the same as those for functions.</p>
+<p>
+	(我们希望这些变量只在模块内部使用)这些规则和函数规则一样。
+</p>
 <p>Modules that are designed for use via <tt class="docutils literal">from M import *</tt> should use
 the <tt class="docutils literal">__all__</tt> mechanism to prevent exporting globals, or use the
 older convention of prefixing such globals with an underscore (which
 you might want to do to indicate these globals are &quot;module
 non-public&quot;).</p>
+<p>
+	被设计为通过<tt class="docutils literal">from M import *</tt>导入的模块。应该用<tt class="docutils literal">__all__</tt>机制来防止导出全局。
+	或者使用过去的全局变量前置下划线的规则（这是为了说明这些变量是&quot;模块私有的&quot;）。
+</p>
 </div>
 <div class="section" id="function-names">
-<h3><a class="toc-backref" href="#id34">Function Names</a></h3>
+<h3><a class="toc-backref" href="#id34">Function Names 函数名</a></h3>
 <p>Function names should be lowercase, with words separated by
 underscores as necessary to improve readability.</p>
+<p>
+	函数名应该用小写，为了增加可读性可以用下划线分隔。
+</p>
 <p>mixedCase is allowed only in contexts where that's already the
 prevailing style (e.g. threading.py), to retain backwards
 compatibility.</p>
+<p>
+	大小写混合仅在为了兼容原有大小写混合风格占主体的情况下使用（比如 threading.py）。
+</p>
 </div>
 <div class="section" id="function-and-method-arguments">
-<h3><a class="toc-backref" href="#id35">Function and method arguments</a></h3>
+<h3><a class="toc-backref" href="#id35">Function and method arguments 函数和方法参数</a></h3>
 <p>Always use <tt class="docutils literal">self</tt> for the first argument to instance methods.</p>
+<p>
+	始终用<tt class="docutils literal">self</tt>作为实例方法的第一个参数。
+</p>
 <p>Always use <tt class="docutils literal">cls</tt> for the first argument to class methods.</p>
+<p>
+	始终用<tt class="docutils literal">cls</tt>作为类方法的第一个参数。
+</p>
 <p>If a function argument's name clashes with a reserved keyword, it is
 generally better to append a single trailing underscore rather than
 use an abbreviation or spelling corruption.  Thus <tt class="docutils literal">class_</tt> is better
 than <tt class="docutils literal">clss</tt>.  (Perhaps better is to avoid such clashes by using a
 synonym.)</p>
+<p>
+	如果函数的参数名和保留字冲突。用结尾下划线比缩写或是滥用的组词更好。因此
+	<tt class="docutils literal">class_</tt> 比 <tt class="docutils literal">clss</tt>好。（也许，更好的避免冲突的方式是用同义词。）
+</p>
 </div>
 <div class="section" id="method-names-and-instance-variables">
-<h3><a class="toc-backref" href="#id36">Method Names and Instance Variables</a></h3>
+<h3><a class="toc-backref" href="#id36">Method Names and Instance Variables 方法名和实例变量</a></h3>
 <p>Use the function naming rules: lowercase with words separated by
 underscores as necessary to improve readability.</p>
+<p>
+	使用函数命名规则：使用下划线分隔的小写字母会提高可读性。
+</p>
 <p>Use one leading underscore only for non-public methods and instance
 variables.</p>
+<p>
+	只在私有方法和实例变量前用单下划线。
+</p>
 <p>To avoid name clashes with subclasses, use two leading underscores to
 invoke Python's name mangling rules.</p>
+<p>
+	使用前导双下划线调用Python的名字变化规则来避免与子类中的名字冲突。
+</p>
 <p>Python mangles these names with the class name: if class Foo has an
 attribute named <tt class="docutils literal">__a</tt>, it cannot be accessed by <tt class="docutils literal">Foo.__a</tt>.  (An
 insistent user could still gain access by calling <tt class="docutils literal">Foo._Foo__a</tt>.)
 Generally, double leading underscores should be used only to avoid
 name conflicts with attributes in classes designed to be subclassed.</p>
+<p>
+	Python 用类名来变化这个名字：如果类Foo有个属性叫做<tt class="docutils literal">__a</tt>,那么它不能用 <tt class="docutils literal">Foo.__a</tt>读取。
+	（执着的用户还是可以用<tt class="docutils literal">Foo._Foo__a</tt>.读取。）
+</p>
 <p>Note: there is some controversy about the use of __names (see below).</p>
+<p>
+	注意：关于__names的使用有一些争论（见下文）。
+</p>
 </div>
 <div class="section" id="constants">
-<h3><a class="toc-backref" href="#id37">Constants</a></h3>
+<h3><a class="toc-backref" href="#id37">Constants 常量</a></h3>
 <p>Constants are usually defined on a module level and written in all
 capital letters with underscores separating words.  Examples include
 <tt class="docutils literal">MAX_OVERFLOW</tt> and <tt class="docutils literal">TOTAL</tt>.</p>
+<p>
+	常量通常在模块级别中定义，用全大写和下划线分隔的字符来编写。例如<tt class="docutils literal">MAX_OVERFLOW</tt> 和 <tt class="docutils literal">TOTAL</tt>。
+</p>
 </div>
 <div class="section" id="designing-for-inheritance">
 <h3><a class="toc-backref" href="#id38">Designing for inheritance 继承设计</a></h3>
@@ -910,17 +1014,26 @@ advanced callers.</p>
 </div>
 </div>
 <div class="section" id="programming-recommendations">
-<h1><a class="toc-backref" href="#id39">Programming Recommendations</a></h1>
+<h1><a class="toc-backref" href="#id39">Programming Recommendations &nbsp;程序设计建议</a></h1>
 <ul>
 <li><p class="first">Code should be written in a way that does not disadvantage other
 implementations of Python (PyPy, Jython, IronPython, Cython, Psyco,
 and such).</p>
+<p class="first">
+	代码应该用不损害其他Python实现的方式去编写（PyPy, Jython, IronPython, Cython, Psyco
+等）
+</p>
 <p>For example, do not rely on CPython's efficient implementation of
 in-place string concatenation for statements in the form <tt class="docutils literal">a += b</tt>
 or <tt class="docutils literal">a = a + b</tt>.  Those statements run more slowly in Jython.  In
 performance sensitive parts of the library, the <tt class="docutils literal"><span class="pre">''.join()</span></tt> form
 should be used instead.  This will ensure that concatenation occurs
 in linear time across various implementations.</p>
+<p>
+	例如，不要依赖于CPython的高效内置字符连接语句<tt class="docutils literal">a += b</tt>
+or <tt class="docutils literal">a = a + b</tt>.这些语句在Jython中运行较慢。在性能敏感的库中，应该用<tt class="docutils literal"><span class="pre">''.join()</span></tt>
+来取代。这样可以保证在不同的实现中，字符链接花费的时间都呈线性。
+</p>
 </li>
 <li><p class="first">Comparisons to singletons like None should always be done with
 <tt class="docutils literal">is</tt> or <tt class="docutils literal">is not</tt>, never the equality operators.</p>
@@ -929,13 +1042,27 @@ None</tt> -- e.g. when testing whether a variable or argument that
 defaults to None was set to some other value.  The other value might
 have a type (such as a container) that could be false in a boolean
 context!</p>
+<p class="first">
+	和像None这样的字符比较时，要使用<tt class="docutils literal">is</tt> or <tt class="docutils literal">is not</tt>，永远不要用等于操作。
+</p>
+<p>
+	同样地，在测试一个变量或参数默认值为None被设置为其他值时（比如<tt class="docutils literal">if x</tt>表示<tt class="docutils literal">if x is not None</tt>时），要注意。
+	这个值应该有一个能在布尔逻辑中为false的类型（比如容器）。
+</p>
 </li>
 <li><p class="first">When implementing ordering operations with rich comparisons, it is
 best to implement all six operations (<tt class="docutils literal">__eq__</tt>, <tt class="docutils literal">__ne__</tt>,
 <tt class="docutils literal">__lt__</tt>, <tt class="docutils literal">__le__</tt>, <tt class="docutils literal">__gt__</tt>, <tt class="docutils literal">__ge__</tt>) rather than relying
 on other code to only exercise a particular comparison.</p>
+<p class="first">
+	当用复杂比较实现顺序操作时，最好去实现全部六个操作(<tt class="docutils literal">__eq__</tt>, <tt class="docutils literal">__ne__</tt>,
+<tt class="docutils literal">__lt__</tt>, <tt class="docutils literal">__le__</tt>, <tt class="docutils literal">__gt__</tt>, <tt class="docutils literal">__ge__</tt>)，而不是依靠其他的代码去实现一些怪异的比较。
+</p>
 <p>To minimize the effort involved, the <tt class="docutils literal">functools.total_ordering()</tt>
 decorator provides a tool to generate missing comparison methods.</p>
+<p>
+	为了最大程度的减少实现这一过程的开销。<tt class="docutils literal">functools.total_ordering()</tt>提供了生成缺少的比较操作的方法。
+</p>
 <p><a class="reference external" href="http://python.org/dev/peps/pep-0207">PEP 207</a> indicates that reflexivity rules <em>are</em> assumed by Python.
 Thus, the interpreter may swap <tt class="docutils literal">y &gt; x</tt> with <tt class="docutils literal">x &lt; y</tt>, <tt class="docutils literal">y &gt;= x</tt>
 with <tt class="docutils literal">x &lt;= y</tt>, and may swap the arguments of <tt class="docutils literal">x == y</tt> and <tt class="docutils literal">x !=
@@ -943,13 +1070,26 @@ y</tt>.  The <tt class="docutils literal">sort()</tt> and <tt class="docutils li
 the <tt class="docutils literal">&lt;</tt> operator and the <tt class="docutils literal">max()</tt> function uses the <tt class="docutils literal">&gt;</tt>
 operator.  However, it is best to implement all six operations so
 that confusion doesn't arise in other contexts.</p>
+<p>
+	<a class="reference external" href="http://python.org/dev/peps/pep-0207">PEP 207</a>指出Python实现了反射。因此，解释器会将<tt class="docutils literal">y &gt; x</tt> 转换为 <tt class="docutils literal">x &lt; y</tt>,
+	<tt class="docutils literal">y &gt;= x</tt>转换为 <tt class="docutils literal">x &lt;= y</tt>，也会转换<tt class="docutils literal">x == y</tt> 和 <tt class="docutils literal">x !=
+y</tt>的参数.The <tt class="docutils literal">sort()</tt> 和 <tt class="docutils literal">min()</tt>被确保使用<tt class="docutils literal">&lt;</tt>操作符，<tt class="docutils literal">max()</tt>使用<tt class="docutils literal">&gt;</tt>操作符。
+但是，最好实现全部六个操作，以避免在其他地方造成的冲突。
+</p>
 </li>
 <li><p class="first">Use class-based exceptions.</p>
+<p class="first">使用基于对象的异常</p>
 <p>String exceptions in new code are forbidden, because this language
 feature is being removed in Python 2.6.</p>
+<p>
+	字符异常在新的代码中被禁止了，因为这一语言特性在2.6版本中被移除了。
+</p>
 <p>Modules or packages should define their own domain-specific base
 exception class, which should be subclassed from the built-in
 Exception class.  Always include a class docstring.  E.g.:</p>
+<p>
+	模块或者包应该定义自己的异常基类，这个类应该继承自内置的Exception类。总要包含类文档语句，例如：
+</p>
 <pre class="literal-block">
 class MessageError(Exception):
     &quot;&quot;&quot;Base class for errors in the email package.&quot;&quot;&quot;
@@ -957,16 +1097,30 @@ class MessageError(Exception):
 <p>Class naming conventions apply here, although you should add the
 suffix &quot;Error&quot; to your exception classes, if the exception is an
 error.  Non-error exceptions need no special suffix.</p>
+<p>
+	在这里用到类命名规范。尽管当你的“异常”是一个“错误”（error）时，你应该在自己的异常类加上后缀&quot;Error&quot;。
+	非错误类（Non-error）异常，不需要特别的后缀。
+</p>
 </li>
 <li><p class="first">When raising an exception, use <tt class="docutils literal">raise <span class="pre">ValueError('message')</span></tt>
 instead of the older form <tt class="docutils literal">raise ValueError, 'message'</tt>.</p>
+<p class="first">
+	当抛出一个异常的时候，使用<tt class="docutils literal">raise <span class="pre">ValueError('message')</span></tt>代替旧的<tt class="docutils literal">raise ValueError, 'message'</tt>格式。
+</p>
 <p>The paren-using form is preferred because when the exception
 arguments are long or include string formatting, you don't need to
 use line continuation characters thanks to the containing
 parentheses.  The older form will be removed in Python 3.</p>
+<p>
+	推荐使用这种括弧的格式，当异常的参数很长或者是格式化字符串的时候，由于括号的关系，我们不需要使用连字符。
+	旧的格式在Python 3 中被移除。
+</p>
 </li>
 <li><p class="first">When catching exceptions, mention specific exceptions whenever
 possible instead of using a bare <tt class="docutils literal">except:</tt> clause.</p>
+<p class="first">
+	当捕获一个异常的时候，要用详细异常声明代替光秃秃的<tt class="docutils literal">except:</tt> 语句.
+</p>
 <p>For example, use:</p>
 <pre class="literal-block">
 try:
@@ -980,20 +1134,41 @@ program with Control-C, and can disguise other problems.  If you
 want to catch all exceptions that signal program errors, use
 <tt class="docutils literal">except Exception:</tt> (bare except is equivalent to <tt class="docutils literal">except
 BaseException:</tt>).</p>
+<p>
+	一个空的<tt class="docutils literal">except:</tt>语句将会捕获 SystemExit 和 KeyboardInterrrupt 异常。这会使得很难用Control-C来中断一个程序，并且还会隐藏其他的问题。
+	如果你想捕获一个程序中的所有异常，使用<tt class="docutils literal">except Exception:</tt> （bare 和<tt class="docutils literal">except
+BaseException:</tt>是等价的）。
+</p>
 <p>A good rule of thumb is to limit use of bare 'except' clauses to two
 cases:</p>
+<p>
+	经验告诉我们在两个情况下避免使用空‘except’
+</p>
 <ol class="arabic simple">
 <li>If the exception handler will be printing out or logging the
 traceback; at least the user will be aware that an error has
-occurred.</li>
+occurred.
+<p>
+	如果异常处理程序要打印或者记录回溯。至少使用者能意识到错误已经发生了。
+</p>
+</li>
 <li>If the code needs to do some cleanup work, but then lets the
 exception propagate upwards with <tt class="docutils literal">raise</tt>.  <tt class="docutils literal"><span class="pre">try...finally</span></tt>
-can be a better way to handle this case.</li>
+can be a better way to handle this case.
+<p>
+	如果代码要做一些收尾工作，但是随后要用 <tt class="docutils literal">raise</tt>向上抛出异常。<tt class="docutils literal"><span class="pre">try...finally</span></tt>可以更好地处理这个问题。
+</p>
+</li>
+
 </ol>
 </li>
 <li><p class="first">Additionally, for all try/except clauses, limit the <tt class="docutils literal">try</tt> clause
 to the absolute minimum amount of code necessary.  Again, this
 avoids masking bugs.</p>
+<p>
+	另外，对于所有的try/except语句，限制<tt class="docutils literal">try</tt>语句来减少必要代码的数量。
+	再者，可以避免掩盖问题。
+</p>
 <p>Yes:</p>
 <pre class="literal-block">
 try:
@@ -1014,23 +1189,39 @@ except KeyError:
 </pre>
 </li>
 <li><p class="first">Use string methods instead of the string module.</p>
+<p class="first">使用String方法而非String模块</p>
 <p>String methods are always much faster and share the same API with
 unicode strings.  Override this rule if backward compatibility with
 Pythons older than 2.0 is required.</p>
+<p>
+	String方法更加快捷并且使用和unicode字符一样的API。如果需要向后兼容2.0之前的版本的话，可以不考虑这条规则。
+</p>
 </li>
 <li><p class="first">Use <tt class="docutils literal"><span class="pre">''.startswith()</span></tt> and <tt class="docutils literal"><span class="pre">''.endswith()</span></tt> instead of string
 slicing to check for prefixes or suffixes.</p>
+<p>
+	使用<tt class="docutils literal"><span class="pre">''.startswith()</span></tt> 和 <tt class="docutils literal"><span class="pre">''.endswith()</span></tt>而非字符切片去检测前缀或后缀。
+</p>
 <p>startswith() and endswith() are cleaner and less error prone.  For
 example:</p>
+<p>
+	startswith() and endswith() 更加绿色，错误更少。例如：
+</p>
 <pre class="literal-block">
 Yes: if foo.startswith('bar'):
 No:  if foo[:3] == 'bar':
 </pre>
 <p>The exception is if your code must work with Python 1.5.2 (but let's
 hope not!).</p>
+<p>
+	例外的就是如果你的代码必须在Python 1.5.2运行（但是，假设它不是）。
+</p>
 </li>
 <li><p class="first">Object type comparisons should always use isinstance() instead of
 comparing types directly.</p>
+<p>
+	对象类型比较总要用 isinstance() 而非直接比较
+</p>
 <pre class="literal-block">
 Yes: if isinstance(obj, int):
 
@@ -1039,12 +1230,19 @@ No:  if type(obj) is type(1):
 <p>When checking if an object is a string, keep in mind that it might
 be a unicode string too!  In Python 2.3, str and unicode have a
 common base class, basestring, so you can do:</p>
+<p>
+	当检测一个对象是否是字符串是，记住，它可能是unicode字符。在Python 2.3，
+	str和unicode有同样的基类——basestring, 那么你可以这样做：
+</p>
 <pre class="literal-block">
 if isinstance(obj, basestring):
 </pre>
 </li>
 <li><p class="first">For sequences, (strings, lists, tuples), use the fact that empty
 sequences are false.</p>
+<p>
+	对于序列，(strings, lists, tuples)，利用空序列为false这一点。
+</p>
 <pre class="literal-block">
 Yes: if not seq:
      if seq:
@@ -1056,8 +1254,14 @@ No: if len(seq)
 <li><p class="first">Don't write string literals that rely on significant trailing
 whitespace.  Such trailing whitespace is visually indistinguishable
 and some editors (or more recently, reindent.py) will trim them.</p>
+<p>
+	书写字面值时不要依靠后面的空格。这些后面的空格，视觉上难以区分，而且很多编辑器（或者，眼前的，reindent.py）会去掉他们。
+</p>
 </li>
 <li><p class="first">Don't compare boolean values to True or False using <tt class="docutils literal">==</tt>.</p>
+<p>
+	别用‘==’进行布尔值和 True 或者 False 的比较
+</p>
 <pre class="literal-block">
 Yes:   if greeting:
 No:    if greeting == True:
