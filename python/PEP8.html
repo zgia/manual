@@ -75,6 +75,8 @@ Barry Warsaw &lt;barry&#32;&#97;t&#32;python.org&gt;</td>
 </tr>
 <tr class="field"><th class="field-name">Post-History:</th><td class="field-body">05-Jul-2001</td>
 </tr>
+<tr class="field"><th class="field-name">翻译:</th><td class="field-body"><a class="reference external" href="http://zgia.net/">zgia</a>, <a class="reference external" href="mailto:bertcy@qq.com">albert</a></td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -82,7 +84,7 @@ Barry Warsaw &lt;barry&#32;&#97;t&#32;python.org&gt;</td>
 <p class="topic-title first">Contents 内容</p>
 <ul class="simple">
 <li><a class="reference internal" href="#introduction" id="id9">Introduction 介绍</a></li>
-<li><a class="reference internal" href="#a-foolish-consistency-is-the-hobgoblin-of-little-minds" id="id10">A Foolish Consistency is the Hobgoblin of Little Minds</a></li>
+<li><a class="reference internal" href="#a-foolish-consistency-is-the-hobgoblin-of-little-minds" id="id10">A Foolish Consistency is the Hobgoblin of Little Minds 愚蠢的一致性就像没脑子的妖怪</a></li>
 <li><a class="reference internal" href="#code-lay-out" id="id11">Code lay-out 代码布局</a><ul>
 <li><a class="reference internal" href="#indentation" id="id12">Indentation 缩进</a></li>
 <li><a class="reference internal" href="#tabs-or-spaces" id="id13">Tabs or Spaces? 制表符或者空格？</a></li>
@@ -138,28 +140,34 @@ essay <a class="footnote-reference" href="#id6" id="id2">[2]</a>, with some addi
 there's conflict, Guido's style rules for the purposes of this PEP.
 This PEP may still be incomplete (in fact, it may never be finished
 &lt;wink&gt;).</p>
-<p>这篇文档改编自Guido最初的《Python Style Guide》<a class="footnote-reference" href="#id6" id="id2">[2]</a>一文，《Barry's style guide》<a class="footnote-reference" href="#id7" id="id3">[3]</a>亦有贡献。对（2文）有冲突的地方，Guido的风格规则更符合这份PEP思想。当然，这份PEP仍不完善（实际上，它可能永远也无法完善&lt;wink&gt;）</p>
+<p>这篇文档改编自Guido（译者注：Python之父，<a class="reference external" href="http://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>）最初的《Python Style Guide》<a class="footnote-reference" href="#id6" id="id2">[2]</a>一文，《Barry's style guide》<a class="footnote-reference" href="#id7" id="id3">[3]</a>亦有贡献。对（2文）有冲突的地方，Guido的风格指南更符合这份PEP思想。当然，这份PEP仍不完善（实际上，它可能永远也无法完善&lt;wink&gt;）</p>
 </div>
 <div class="section" id="a-foolish-consistency-is-the-hobgoblin-of-little-minds">
-<h1><a class="toc-backref" href="#id10">A Foolish Consistency is the Hobgoblin of Little Minds</a></h1>
+<h1><a class="toc-backref" href="#id10">A Foolish Consistency is the Hobgoblin of Little Minds 愚蠢的一致性就像没脑子的妖怪</a></h1>
 <p>One of Guido's key insights is that code is read much more often than
 it is written.  The guidelines provided here are intended to improve
 the readability of code and make it consistent across the wide
 spectrum of Python code.  As <a class="reference external" href="http://python.org/dev/peps/pep-0020">PEP 20</a> says, &quot;Readability counts&quot;.</p>
+<p>Guido的关键见解之一是阅读代码比怎么写代码更重要。这份指南意图提高代码的可阅读性，使整个 Python 代码的代码保持一致。正如 <a class="reference external" href="http://python.org/dev/peps/pep-0020">PEP 20</a> 所表述的，“可读性很重要”。（译者注：<a class="reference external" href="http://blog.csdn.net/lanphaday/article/details/2151918">可以点击这里查看由lanphaday翻译的“The Zen of Python”</a>。）</p>
 <p>A style guide is about consistency.  Consistency with this style guide
 is important.  Consistency within a project is more important.
 Consistency within one module or function is most important.</p>
+<p>这是一份关于一致性的风格指南。这份风格指南的风格一致性是非常重要的。更重要的是项目的风格一致性。在一个模块或函数的风格一致性是最重要的。</p>
 <p>But most importantly: know when to be inconsistent -- sometimes the
 style guide just doesn't apply.  When in doubt, use your best
 judgment.  Look at other examples and decide what looks best.  And
 don't hesitate to ask!</p>
+<p>但最重要的是：知道什么时候是不一致的————有时风格指南并不适用。有疑问时，请使用您的最佳判断。看看其他的例子，并决定什么看上去最美观。不要犹豫，提示提问！</p>
 <p>Two good reasons to break a particular rule:</p>
+<p>两个很好的理由来打破特定规则：</p>
 <ol class="arabic simple">
 <li>When applying the rule would make the code less readable, even for
-someone who is used to reading code that follows the rules.</li>
+someone who is used to reading code that follows the rules.
+<p>应用了这个规则后，代码的可读性却降低了。甚至有人依据以下的规则来阅读代码。</p></li>
 <li>To be consistent with surrounding code that also breaks it (maybe
 for historic reasons) -- although this is also an opportunity to
-clean up someone else's mess (in true XP style).</li>
+clean up someone else's mess (in true XP style).
+<p>欲与周围的代码的代码保持一致，也会打破这个规则（也许是历史的原因）————虽然这也是一个机会来收拾别人的烂摊子（真正的XP风格）。（译者注：XP，Xtreme Programming，极限编程）</p></li>
 </ol>
 </div>
 <div class="section" id="code-lay-out">
