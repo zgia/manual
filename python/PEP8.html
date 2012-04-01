@@ -714,7 +714,7 @@ case convention):</p>
 E.g. <tt class="docutils literal">from M import *</tt> does not import objects whose name starts
 with an underscore.</p>
 <p>
-	<tt class="docutils literal">_single_leading_underscore</tt>：（单下划线开始）弱&quot;内部使用&quot;指示器。例如：<tt class="docutils literal">from M import *</tt> 不会导入以下划线开始的类。</p>
+	<tt class="docutils literal">_single_leading_underscore</tt>：（单下划线开始）弱&quot;内部使用&quot;指示器。例如：<tt class="docutils literal">from M import *</tt> 不会导入以下划线开始的对象。</p>
 </p>
 </li>
 <li><p class="first"><tt class="docutils literal">single_trailing_underscore_</tt>: used by convention to avoid
@@ -904,7 +904,7 @@ doubt, choose non-public; it's easier to make it public later than to
 make a public attribute non-public.</p>
 <p>
 	总要考虑一个类的方法或实例变量（总体而言：属性）应该是公用的或者非公用的。如果不能确定的话，设计为私有的。
-	因为，之后将一个私用的改为公有的要比将公有的变为私有的容易。
+	因为，之后将一个私有的改为公有的要比将公有的变为私有的容易。
 </p>
 <p>Public attributes are those that you expect unrelated clients of your
 class to use, with your commitment to avoid backward incompatible
@@ -965,7 +965,7 @@ syntax.</p>
 <p>
 	对于单一的公有数据属性，最好是直接用其属性名，而非复杂的存取器/突变期方法。
 	需要记得的是，Python为今后由简单的数据属性扩充为方法操作提供了简单的途径。
-	因此，运用属性来达到简单数据存取语法对于方法实现的透明化处理。
+	因此，运用属性来实现简单数据存取语法对于方法实现的透明化处理。
 </p>
 <p>Note 1: Properties only work on new-style classes.</p>
 <p>
@@ -974,7 +974,7 @@ syntax.</p>
 <p>Note 2: Try to keep the functional behavior side-effect free,
 although side-effects such as caching are generally fine.</p>
 <p>
-	尽管方法行为对于内存等的副作用比较小，但仍要尽量避免
+	尽管方法行为对于缓存等的影响通常比较小，但仍要尽量避免
 </p>
 <p>Note 3: Avoid using properties for computationally expensive
 operations; the attribute notation makes the caller believe that
@@ -1051,11 +1051,11 @@ defaults to None was set to some other value.  The other value might
 have a type (such as a container) that could be false in a boolean
 context!</p>
 <p class="first">
-	和像None这样的字符比较时，要使用<tt class="docutils literal">is</tt> or <tt class="docutils literal">is not</tt>，永远不要用等于操作。
+	与诸如None这样的字符比较时，要使用<tt class="docutils literal">is</tt> or <tt class="docutils literal">is not</tt>，永远不要用等于操作。
 </p>
 <p>
 	同样地，在测试一个变量或参数默认值为None被设置为其他值时（比如<tt class="docutils literal">if x</tt>表示<tt class="docutils literal">if x is not None</tt>时），要注意。
-	这个值应该有一个能在布尔逻辑中为false的类型（比如容器）。
+	这个值应该有一个能在布尔逻辑的上下文中为false的类型（比如容器）。
 </p>
 </li>
 <li><p class="first">When implementing ordering operations with rich comparisons, it is
@@ -1063,7 +1063,7 @@ best to implement all six operations (<tt class="docutils literal">__eq__</tt>, 
 <tt class="docutils literal">__lt__</tt>, <tt class="docutils literal">__le__</tt>, <tt class="docutils literal">__gt__</tt>, <tt class="docutils literal">__ge__</tt>) rather than relying
 on other code to only exercise a particular comparison.</p>
 <p class="first">
-	当用复杂比较实现顺序操作时，最好去实现全部六个操作(<tt class="docutils literal">__eq__</tt>, <tt class="docutils literal">__ne__</tt>,
+	当用复杂比较实现排序操作时，最好去实现全部六个操作(<tt class="docutils literal">__eq__</tt>, <tt class="docutils literal">__ne__</tt>,
 <tt class="docutils literal">__lt__</tt>, <tt class="docutils literal">__le__</tt>, <tt class="docutils literal">__gt__</tt>, <tt class="docutils literal">__ge__</tt>)，而不是依靠其他的代码去实现一些怪异的比较。
 </p>
 <p>To minimize the effort involved, the <tt class="docutils literal">functools.total_ordering()</tt>
