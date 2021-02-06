@@ -33,16 +33,19 @@
 ## 语言特性
 > 对PHP语言的了解，强烈建议每一位开发者都要通读[PHP手册](https://www.php.net/manual/zh/index.php)
 
-* 魔术方法，比如析构（`__destruct`），会在什么时候调用；`__toString`能做什么？
+* PSR：自动加载
+* PSR：事件、消息机制
+* PSR：容器
+* 魔术方法，比如`__destruct`在什么时候调用；`__toString`能做什么
 * 语法糖，比如“`?:`”和“`??`”的区别
 * cli V.S. fpm
-* 方法的缺省值
+* 方法的缺省值，PHP8如何对方法参数的优化
 * 运行超时，内存耗尽
 * ArrayAccess，Traversable等接口的含义
 * Traits的用法
-* 是否支持多进程和多线程？
 * 一些常用扩展：gd，pdo，加密等
 * PHP7/8的一些新特性
+* 是否支持多进程和多线程？
 * Swoole相关（异步，协程等等）
 
 ## 应用场景
@@ -93,17 +96,17 @@
 * 如果有电商经验，用Redis设计一个简单的**购物车**
 * 如何避免大Key的情况出现
 * 数据过期策略
-	* `volatile-lru` -> Evict using approximated LRU among the keys with an expire set.
-	* `allkeys-lru` -> Evict any key using approximated LRU.
-	* `volatile-lfu` -> Evict using approximated LFU among the keys with an expire set.
-	* `allkeys-lfu` -> Evict any key using approximated LFU.
-	* `volatile-random` -> Remove a random key among the ones with an expire set.
-	* `allkeys-random` -> Remove a random key, any key.
-	* `volatile-ttl` -> Remove the key with the nearest expire time (minor TTL)
-	* **`noeviction`** -> Don't evict anything, just return an error on write operations.
+	* `volatile-lru` -> 在设置了过期时间的键的集合中，移除最近最少使用的key
+	* `allkeys-lru` -> 移除最近最少使用的key
+	* `volatile-lfu` -> 在设置了过期时间的键的集合中，移除最近最不常使用的key
+	* `allkeys-lfu` -> 移除最近最不常使用的key
+	* `volatile-random` -> 在设置了过期时间的键的集合中，随机移除一个key
+	* `allkeys-random` -> 随机移除一个或者多个key
+	* `volatile-ttl` -> 在设置了过期时间的键的集合中，优先移除有更早过期时间的key
+	* **`noeviction`** -> 不移除任何key，有新的写入操作会报错
 	* 
-	* **LRU** means **Least Recently Used**
-	* **LFU** means **Least Frequently Used**
+	* **LRU** : **Least Recently Used-最近最少使用**
+	* **LFU** : **Least Frequently Used-最近最不常使用**
 * 数据持久化方式，奔溃后的数据恢复方式
 * 假设有1亿个key，其中有10万个key是以前缀`neo:`开头的，如何将它们全部找出来？
 * 常用的一些Redis命令
@@ -153,12 +156,6 @@
 * 单元测试，冒烟测试
 * 编码规范，[参考这里](https://github.com/zgia/manual/blob/master/PHP%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.md)
 * 代码评审
-
-## PSR
-
-* 自动加载
-* 事件、消息机制
-* 容器
 
 ## 前端
 * 访问一个链接（如：http://www.163.com/ ）时，浏览器做了哪些事情
